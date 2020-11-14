@@ -1,11 +1,11 @@
 <?php
 
-namespace Litepie\http;
+namespace Litepie\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request as IlluminateRequest;
 
-abstract class Request extends FormRequest
+abstract class AbstractRequest extends FormRequest
 {
     /**
      * User for the current request.
@@ -61,7 +61,8 @@ abstract class Request extends FormRequest
      **/
     protected function isWorkflow()
     {
-        if ($this->formRequest->isMethod('PATCH') && $this->formRequest->has('status')) {
+        if ($this->formRequest->isMethod('PATCH')
+            && $this->formRequest->has(['status', 'stage'])) {
             return true;
         }
 
@@ -75,7 +76,8 @@ abstract class Request extends FormRequest
      **/
     protected function getStep()
     {
-        if ($this->formRequest->isMethod('PATCH') && $this->formRequest->has('status')) {
+        if ($this->formRequest->isMethod('PATCH')
+            && $this->formRequest->has(['status', 'stage'])) {
             return true;
         }
 

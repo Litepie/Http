@@ -1,8 +1,8 @@
 <?php
 
-namespace Litepie\http\Traits;
+namespace Litepie\Http\Traits;
 
-trait View
+trait ViewTrait
 {
     /**
      * @var View for the response.
@@ -22,7 +22,7 @@ trait View
      *
      * @return self
      */
-    public function view($view, $includeFolder = null)
+    public function view($view)
     {
         $this->view = $view;
 
