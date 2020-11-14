@@ -1,10 +1,10 @@
 <?php
 
-namespace Litepie\http\Traits;
+namespace Litepie\Http\Traits;
 
 use Theme as BaseTheme;
 
-trait Theme
+trait ThemeTrait
 {
     /**
      * @var Theme for the request.
