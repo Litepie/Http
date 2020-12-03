@@ -1,8 +1,8 @@
 <?php
 
-namespace Litepie\http\Traits;
+namespace Litepie\Http\Traits;
 
-trait Request
+trait RequestTrait
 {
     /**
      * @var store the response type.
