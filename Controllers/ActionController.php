@@ -2,10 +2,11 @@
 
 namespace Litepie\Http\Controllers;
 
+use Litepie\Http\Response\ActionResponse;
 use Litepie\Theme\ThemeAndViews;
 use Litepie\User\Traits\RoutesAndGuards;
 
-class AuthController extends Controller
+class ActionController extends Controller
 {
     use RoutesAndGuards;
     use ThemeAndViews;
@@ -18,13 +19,14 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('set.guard');
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['get', 'post']);
         $this->middleware('localize.route');
         $this->middleware(function ($request, $next) {
-            $this->response = app(ResourceResponse::class);
+            $this->response = app(ActionResponse::class);
             $this->layout = 'app';
             $this->setTheme();
             return $next($request);
         });
     }
+
 }
